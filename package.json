@@ -4,13 +4,14 @@
   "description": "A Node.js boilerplate for starting a Multi-tenant Node.js Application with MongoDB.",
   "main": "index.js",
   "scripts": {
-    "development:start": "npm run build/release/server.js",
-    "development:compiler": "npm run tsc",
-    "development:watcher": "npm run tsc -w"
+    "development:start": "node build/release/server.js",
+    "development:compiler": "tsc",
+    "development:watcher": "tsc -w"
   },
   "author": "Airscripts",
   "license": "ISC",
   "devDependencies": {
+    "@types/express": "^4.17.11",
     "typescript": "^4.2.4"
   },
   "dependencies": {
