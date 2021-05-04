@@ -1,0 +1,19 @@
+{
+  "name": "lieutenant",
+  "version": "1.0.0",
+  "description": "A Node.js boilerplate for starting a Multi-tenant Node.js Application with MongoDB.",
+  "main": "index.js",
+  "scripts": {
+    "development:start": "npm run build/release/server.js",
+    "development:compiler": "npm run tsc",
+    "development:watcher": "npm run tsc -w"
+  },
+  "author": "Airscripts",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
