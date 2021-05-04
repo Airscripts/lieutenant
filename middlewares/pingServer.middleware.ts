@@ -7,11 +7,7 @@ import { NextFunction } from "express";
 function pingServer() {
   return (req: Request, res: Response, next: NextFunction) => {
     try {
-      return res.status(200).json({
-        data: {
-          response: "Pong",
-        },
-      });
+      return res.status(200).send("pong");
     } catch (error) {
       console.error(error);
       res.status(500).json({  

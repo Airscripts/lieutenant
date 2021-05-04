@@ -1,12 +1,11 @@
-// Importing: Modules.
+// Importing: Dependencies.
 import express from "express";
-
-// Importing: Routers.
 
 // Importing: Middlewares.
 import pingServer from "../middlewares/pingServer.middleware";
 
 // Importing: Configs.
+import configs from "../.configs";
 
 // Declaring Application Loader.
 class Application {
@@ -25,7 +24,9 @@ class Application {
     application: express.Application
   ): express.Application {
     application.get("/ping", pingServer());
-    application.listen(8080);
+    application.listen(configs.application.port);
+
+    console.info(`Lieutenant is actually up and running on port: ${configs.application.port}`);
     return application;
   }
 }
