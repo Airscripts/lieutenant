@@ -1,7 +1,9 @@
 // Importing: Dependencies.
 import express from "express";
-import mongoose from "mongoose";
 import bcrypt from "bcrypt";
+
+// Importing: Middlewares.
+import isAuthenticated from "../../../../middlewares/isAuthenticated.middleware";
 
 // Importing: Scripts.
 import generateNewToken from "../../../../scripts/generateNewToken.script";
@@ -11,6 +13,7 @@ import UserModel from "../users/users.model";
 
 // Importing: Interfaces.
 import { Request } from "express";
+import { AuthRequest } from "../../../../interfaces/global";
 import { Response } from "express";
 import { NextFunction } from "express";
 
@@ -27,11 +30,22 @@ loginRouter
 
   .all()
 
-  .get(async (req: Request, res: Response, next: NextFunction) => {
-    try {
-      res.status(200).send("Coming soon.");
-    } catch (error) {}
-  })
+  .get(
+    isAuthenticated(),
+    async (req: AuthRequest, res: Response, next: NextFunction) => {
+      try {
+        res.status(200).json({
+          data: req.user,
+        });
+      } catch (error) {
+        res.status(500).json({
+          error: {
+            message: error.message,
+          },
+        });
+      }
+    }
+  )
 
   .post(async (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -95,7 +109,7 @@ loginRouter
       });
     } catch (error) {
       res.status(400).json({
-        errors: {
+        error: {
           message: error.message,
         },
       });

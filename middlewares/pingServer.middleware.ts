@@ -9,15 +9,10 @@ function pingServer() {
     try {
       return res.status(200).send("pong");
     } catch (error) {
-      console.error(error);
-      res.status(500).json({  
-        errors: [
-          {
-            error: error,
-            status: 500,
-            description: "Internal Server Error.",
-          },
-        ],
+      res.status(500).json({
+        error: {
+          message: error.message,
+        },
       });
     }
   };

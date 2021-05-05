@@ -11,7 +11,7 @@ export default {
     environment: process.env.NODE_ENV || "development",
     token: {
       secret: process.env.TOKEN_SECRET || "lieutenant",
-      expirationTime: "3600s",
+      expirationTime: "3600000",
     },
   },
 
