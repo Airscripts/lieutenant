@@ -1,5 +1,5 @@
 // Importing: Loaders.
-import Application from "./loaders/application.laoder";
+import Application from "./loaders/application.loader";
 
 // Declaring Server Class.
 class Server extends Application {

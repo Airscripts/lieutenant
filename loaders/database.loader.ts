@@ -31,6 +31,11 @@ class Database {
 // Declaring Database Object.
 let database = new Database();
 
+// Declaring Catalog Connection.
+let catalog = database
+  .getFirstLane()
+  .useDb(configs.database.catalog, { useCache: true });
+
 // Exporting Loader.
 export default Database;
-export { database };
+export { database, catalog };
