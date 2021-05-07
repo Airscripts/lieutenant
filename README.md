@@ -8,5 +8,5 @@
 
 ## Support me 👍🏻
 
-Follow me on GitHub: https://github.com/Airscripts.
+Follow me on GitHub: https://github.com/Airscripts.  
 Follow me on Twitter: https://twitter.com/airscript.
