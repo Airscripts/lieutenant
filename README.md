@@ -2,7 +2,7 @@
 
 - Open your favorite CLI and type the following commands
 	- git clone https://github.com/Airscripts/lieutenant.git
-	- npm run development:compile
+	- npm run development:compiler
 	- npm run development:start
 - Start editing the project following your needs!
 
