@@ -36,6 +36,11 @@ let catalog = database
   .getFirstLane()
   .useDb(configs.database.catalog, { useCache: true });
 
+// Declaring Tenant Connection Function.
+function connectTo(tenant: string) {
+  return database.getFirstLane().useDb(tenant, { useCache: true });
+}
+
 // Exporting Loader.
 export default Database;
-export { database, catalog };
+export { database, catalog, connectTo };

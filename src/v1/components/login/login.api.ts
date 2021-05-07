@@ -21,14 +21,12 @@ import { NextFunction } from "express";
 const HTTP_METHODS = ["GET", "POST"];
 
 // Declaring variables.
-let loginRouter: express.Router = express.Router();
+let loginRouter = express.Router();
 let userModel = new UserModel();
 
 // Declaring API.
 loginRouter
   .route("/")
-
-  .all()
 
   .get(
     isAuthenticated(),
@@ -97,7 +95,14 @@ loginRouter
       //#endregion
 
       //#region Generating authentication token.
-      let token = generateNewToken(user._id);
+      let payload = {
+        identifier: user._id,
+        username: user.username,
+        email: user.email,
+        database: user.database,
+      };
+
+      let token = generateNewToken(payload);
       // console.log(token);
       //#endregion
 
